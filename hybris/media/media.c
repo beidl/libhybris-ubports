@@ -47,7 +47,7 @@ int media_compat_check_availability()
 {
 	/* Both are defined via HYBRIS_LIBRARY_INITIALIZE */
 	hybris_media_initialize();
-	return media_handle ? 1 : 0;
+	return 1;
 }
 
 unsigned int hybris_media_get_version()
