@@ -28,9 +28,13 @@
 #include <stdlib.h>
 
 extern "C" {
+#if (ANDROID_VERSION_MAJOR>=4 && ANDROID_VERSION_MINOR>=2 || ANDROID_VERSION_MAJOR>=5) \
+    && ANDROID_VERSION_MAJOR < 7
 #include <sync/sync.h>
-};
- 
+#else
+#include <libsync/include/sync.h>
+#endif
+}
 
 extern "C" struct ANativeWindow *HWCNativeWindowCreate(unsigned int width, unsigned int height, unsigned int format, HWCPresentCallback present, void *cb_data)
 {
