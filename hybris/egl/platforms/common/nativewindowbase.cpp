@@ -167,8 +167,7 @@ int BaseNativeWindow::_dequeueBuffer_DEPRECATED(ANativeWindow* window, ANativeWi
 
 	*buffer = static_cast<ANativeWindowBuffer*>(temp);
 
-#if ANDROID_VERSION_MAJOR>=4 && ANDROID_VERSION_MINOR>=2 || ANDROID_VERSION_MAJOR>=5 \
-    && ANDROID_VERSION_MAJOR < 7
+#if ANDROID_VERSION_MAJOR>=4 && ANDROID_VERSION_MINOR>=2 || ANDROID_VERSION_MAJOR>=5
 	if (fenceFd >= 0)
 	{
 		sync_wait(fenceFd, -1);
