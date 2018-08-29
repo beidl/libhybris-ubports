@@ -40,3 +40,10 @@ if HAS_ANDROID_5_0_0
 eglplatform_wayland_la_LDFLAGS += $(top_builddir)/libsync/libsync.la
 endif
 
+if HAS_ANDROID_6_0_0
+eglplatform_wayland_la_LDFLAGS += $(top_builddir)/libsync/libsync.la
+endif
+
+if HAS_ANDROID_7_0_0
+eglplatform_wayland_la_LDFLAGS += $(top_builddir)/libsync/libsync.la
+endif

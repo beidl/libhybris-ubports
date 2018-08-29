@@ -6,6 +6,13 @@ endif
 if HAS_ANDROID_5_0_0
 SUBDIRS += libsync
 endif
+if HAS_ANDROID_6_0_0
+SUBDIRS += libsync
+endif
+if HAS_ANDROID_7_0_0
+SUBDIRS += libsync
+endif
+
 SUBDIRS += egl glesv1 glesv2 ui sf input camera vibrator media wifi opencl
 
 if HAS_LIBNFC_NXP_HEADERS

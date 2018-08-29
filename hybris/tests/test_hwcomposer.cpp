@@ -27,7 +27,12 @@
 #include <hardware/hardware.h>
 #include <hardware/hwcomposer.h>
 #include <malloc.h>
+#if (ANDROID_VERSION_MAJOR>=4 && ANDROID_VERSION_MINOR>=2 || ANDROID_VERSION_MAJOR>=5) \
+    && ANDROID_VERSION_MAJOR < 7
 #include <sync/sync.h>
+#else
+#include <libsync/include/sync.h>
+#endif
 
 const char vertex_src [] =
 "                                        \

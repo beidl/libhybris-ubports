@@ -6,6 +6,12 @@ endif
 if HAS_ANDROID_5_0_0
 SUBDIRS += hwcomposer
 endif
+if HAS_ANDROID_6_0_0
+SUBDIRS += hwcomposer
+endif
+if HAS_ANDROID_7_0_0
+SUBDIRS += hwcomposer
+endif
 
 if WANT_WAYLAND
 SUBDIRS += wayland

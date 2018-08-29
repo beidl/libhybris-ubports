@@ -36,11 +36,14 @@
 #include "logging.h"
 #include <eglhybris.h>
 
-#if ANDROID_VERSION_MAJOR>=4 && ANDROID_VERSION_MINOR>=2 || ANDROID_VERSION_MAJOR>=5
 extern "C" {
+#if (ANDROID_VERSION_MAJOR>=4 && ANDROID_VERSION_MINOR>=2 || ANDROID_VERSION_MAJOR>=5) \
+    && ANDROID_VERSION_MAJOR < 7
 #include <sync/sync.h>
-}
+#else
+#include <libsync/include/sync.h>
 #endif
+}
 
 static void
 buffer_create_sync_callback(void *data, struct wl_callback *callback, uint32_t serial)

@@ -6,13 +6,14 @@
 #include "support.h"
 #include <stdarg.h>
 
+extern "C" {
 #if (ANDROID_VERSION_MAJOR>=4 && ANDROID_VERSION_MINOR>=2 || ANDROID_VERSION_MAJOR>=5) \
     && ANDROID_VERSION_MAJOR < 7
-extern "C" {
 #include <sync/sync.h>
-}
+#else
+#include <libsync/include/sync.h>
 #endif
-
+}
 
 #include "nativewindowbase.h"
 

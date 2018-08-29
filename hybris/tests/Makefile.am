@@ -23,6 +23,13 @@ if HAS_ANDROID_5_0_0
 bin_PROGRAMS += test_hwcomposer
 endif
 
+if HAS_ANDROID_6_0_0
+bin_PROGRAMS += test_hwcomposer
+endif
+
+if HAS_ANDROID_7_0_0
+bin_PROGRAMS += test_hwcomposer
+endif
 
 if HAS_LIBNFC_NXP_HEADERS
 # test_nfc depends on NFC hardware HAL interface, which is only
@@ -34,6 +41,12 @@ if HAS_ANDROID_4_1_0
 bin_PROGRAMS += test_nfc
 else
 if HAS_ANDROID_5_0_0
+bin_PROGRAMS += test_nfc
+endif
+if HAS_ANDROID_6_0_0
+bin_PROGRAMS += test_nfc
+endif
+if HAS_ANDROID_7_0_0
 bin_PROGRAMS += test_nfc
 endif
 endif
