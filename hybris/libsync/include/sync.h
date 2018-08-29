@@ -1,1 +1,54 @@
-LyoKICogIHN5bmMuaAogKgogKiAgIENvcHlyaWdodCAyMDEyIEdvb2dsZSwgSW5jCiAqCiAqICBMaWNlbnNlZCB1bmRlciB0aGUgQXBhY2hlIExpY2Vuc2UsIFZlcnNpb24gMi4wICh0aGUgIkxpY2Vuc2UiKTsKICogIHlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS4KICogIFlvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdAogKgogKiAgICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMAogKgogKiAgVW5sZXNzIHJlcXVpcmVkIGJ5IGFwcGxpY2FibGUgbGF3IG9yIGFncmVlZCB0byBpbiB3cml0aW5nLCBzb2Z0d2FyZQogKiAgZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIExpY2Vuc2UgaXMgZGlzdHJpYnV0ZWQgb24gYW4gIkFTIElTIiBCQVNJUywKICogIFdJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLgogKiAgU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZAogKiAgbGltaXRhdGlvbnMgdW5kZXIgdGhlIExpY2Vuc2UuCiAqLwoKI2lmbmRlZiBfX1NZU19DT1JFX1NZTkNfSAojZGVmaW5lIF9fU1lTX0NPUkVfU1lOQ19ICgojaW5jbHVkZSA8c3lzL2NkZWZzLmg+CiNpbmNsdWRlIDxzdGRpbnQuaD4KCl9fQkVHSU5fREVDTFMKCi8vIFhYWDogVGhlc2Ugc3RydWN0cyBhcmUgY29waWVkIGZyb20gdGhlIGhlYWRlciAibGludXgvc3luYy5oIi4Kc3RydWN0IHN5bmNfZmVuY2VfaW5mb19kYXRhIHsKIHVpbnQzMl90IGxlbjsKIGNoYXIgbmFtZVszMl07CiBpbnQzMl90IHN0YXR1czsKIHVpbnQ4X3QgcHRfaW5mb1swXTsKfTsKCnN0cnVjdCBzeW5jX3B0X2luZm8gewogdWludDMyX3QgbGVuOwogY2hhciBvYmpfbmFtZVszMl07CiBjaGFyIGRyaXZlcl9uYW1lWzMyXTsKIGludDMyX3Qgc3RhdHVzOwogdWludDY0X3QgdGltZXN0YW1wX25zOwogdWludDhfdCBkcml2ZXJfZGF0YVswXTsKfTsKCi8qIHRpbWVvdXQgaW4gbXNlY3MgKi8KaW50IHN5bmNfd2FpdChpbnQgZmQsIGludCB0aW1lb3V0KTsKaW50IHN5bmNfbWVyZ2UoY29uc3QgY2hhciAqbmFtZSwgaW50IGZkMSwgaW50IGZkMik7CnN0cnVjdCBzeW5jX2ZlbmNlX2luZm9fZGF0YSAqc3luY19mZW5jZV9pbmZvKGludCBmZCk7CnN0cnVjdCBzeW5jX3B0X2luZm8gKnN5bmNfcHRfaW5mbyhzdHJ1Y3Qgc3luY19mZW5jZV9pbmZvX2RhdGEgKmluZm8sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3Qgc3luY19wdF9pbmZvICppdHIpOwp2b2lkIHN5bmNfZmVuY2VfaW5mb19mcmVlKHN0cnVjdCBzeW5jX2ZlbmNlX2luZm9fZGF0YSAqaW5mbyk7CgpfX0VORF9ERUNMUwoKI2VuZGlmIC8qIF9fU1lTX0NPUkVfU1lOQ19IICovCg==
+/*
+ *  sync.h
+ *
+ *   Copyright 2012 Google, Inc
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+#ifndef __SYS_CORE_SYNC_H
+#define __SYS_CORE_SYNC_H
+
+#include <sys/cdefs.h>
+#include <stdint.h>
+
+__BEGIN_DECLS
+
+// XXX: These structs are copied from the header "linux/sync.h".
+struct sync_fence_info_data {
+ uint32_t len;
+ char name[32];
+ int32_t status;
+ uint8_t pt_info[0];
+};
+
+struct sync_pt_info {
+ uint32_t len;
+ char obj_name[32];
+ char driver_name[32];
+ int32_t status;
+ uint64_t timestamp_ns;
+ uint8_t driver_data[0];
+};
+
+/* timeout in msecs */
+int sync_wait(int fd, int timeout);
+int sync_merge(const char *name, int fd1, int fd2);
+struct sync_fence_info_data *sync_fence_info(int fd);
+struct sync_pt_info *sync_pt_info(struct sync_fence_info_data *info,
+                                  struct sync_pt_info *itr);
+void sync_fence_info_free(struct sync_fence_info_data *info);
+
+__END_DECLS
+
+#endif /* __SYS_CORE_SYNC_H */
